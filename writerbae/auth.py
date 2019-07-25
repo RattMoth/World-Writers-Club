@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, url_for, request
+from flask import Blueprint, render_template, redirect, url_for, request, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 from .models import User
 from . import db
@@ -23,8 +23,8 @@ def login_post():
         return redirect(url_for('auth.login'))
     
     elif not check_password_hash(user.password, password):
-        flash('Wrong password {}'.format(email))
-        return redirect(url_for(auth.login))
+        flash('Wrong password for {}'.format(email))
+        return redirect(url_for('auth.login'))
    
     return redirect(url_for('main.profile'))
 
@@ -38,7 +38,24 @@ def signup():
 @auth.route('/signup', methods=['POST'])
 def signup_post():
 
-    email = reques.form.get('email')
+    email = request.form.get('email')
+    name = request.form.get('name')
+    password = request.form.get('password')
+
+    user = User.query.filter_by(email=email).first() # if this returns a user, then the email already exists in database
+
+    if user: # if a user is found, we want to redirect back to signup page so user can try again  
+        flash("Email address already exists")
+        return redirect(url_for('auth.signup'))
+
+    # create new user with the form data. Hash the password so plaintext version isn't saved.
+    new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'))
+
+    db.session.add(new_user)
+    db.session.commit()
+
+    return redirect(url_for('auth.login'))
+
 
 @auth.route('/logout')
 def logout():

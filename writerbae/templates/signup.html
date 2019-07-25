@@ -6,6 +6,17 @@
 <div class="column is-4 is-offset-4">
     <h3 class="title">Sign Up</h3>
     <div class="box">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+               {% for message in messages %}
+               <div class="notification is-danger">
+                    {{ message }}.<br>
+                      Go to <a href="{{ url_for('auth.login') }}">Login Page</a>.
+                </div>
+                  {{ message }}
+               {% endfor %}
+            {% endif %}
+         {% endwith %}
         <form method="POST" action="/signup">
             <div class="field">
                 <div class="control">
