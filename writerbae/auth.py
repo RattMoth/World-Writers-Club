@@ -21,11 +21,11 @@ def login_post():
     user = User.query.filter_by(email=email).first()
 
     if not user: 
-        flash('We dont have that email. Try again.')
+        flash('We dont have that email, Try again.', 'danger')
         return redirect(url_for('auth.login'))
     
     elif not check_password_hash(user.password, password):
-        flash('Wrong password for {}'.format(email))
+        flash('Wrong password, Try again', 'danger')
         return redirect(url_for('auth.login'))
     
     login_user(user, remember=remember)
@@ -58,6 +58,8 @@ def signup_post():
     db.session.add(new_user)
     db.session.commit()
 
+
+    flash("Account created for {}!".format(email), 'success')
     return redirect(url_for('auth.login'))
 
 
@@ -65,7 +67,7 @@ def signup_post():
 @login_required
 def logout():
     logout_user()
-    return (url_for('main.index'))
+    return redirect(url_for('main.index'))
 
 
 

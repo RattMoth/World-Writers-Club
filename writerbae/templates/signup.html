@@ -10,10 +10,9 @@
             {% if messages %}
                {% for message in messages %}
                <div class="notification is-danger">
-                    {{ message }}.<br>
-                      Go to <a href="{{ url_for('auth.login') }}">Login Page</a>.
+                    {{ message }}<br>
                 </div>
-                  {{ message }}
+                
                {% endfor %}
             {% endif %}
          {% endwith %}
