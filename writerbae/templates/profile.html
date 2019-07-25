@@ -3,7 +3,14 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    <div class="notification is-primary">
+        {{ messages[0] }}
+    </div>
+{% endif %}
+{% endwith %}
 <h1 class="title">
-  Welcome, Anthony!
+  Welcome, {{ current.name }}!
 </h1>
 {% endblock %}
