@@ -1,0 +1,21 @@
+#container {
+    display: flex;
+  }
+  
+  #center {
+    margin: auto;
+  }
+  /* Remaining CSS is identical to original */
+  #p12 {
+    display: flex;
+    overflow: hidden;
+    border-right: .15em solid orange;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 2px;
+    animation: typing 1.3s steps(10, end), blink-caret .75s steps(50, end) infinite;
+  }
+  
+  #p12 {
+    display: inline-flex;
+  }
