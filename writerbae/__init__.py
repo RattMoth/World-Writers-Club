@@ -34,4 +34,13 @@ def create_app():
     return app
 
 
+""" 
+so the objects of this app
+User
+Prompt Session
+Writing
+
+User + User meet in a Prompt Session and create Writings which are sent to each other
+"""
+
 

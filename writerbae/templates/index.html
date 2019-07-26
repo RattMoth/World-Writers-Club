@@ -3,10 +3,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 class="title">
-  WriterBae.com
+<div>
+<h1 class="title typewriter">
+  Two Writers Club✍️🌎
 </h1>
 <h2 class="subtitle">
-  Get matched with another writer, and you both have 15 minutes to answer a writng prompt. Then share with each other, then never speak again ;)
+  Get matched with another writer, and you both have 15 minutes to answer a writing prompt. Then share with each other, then never speak again ;)
 </h2>
+{% if not current_user.is_authenticated %}
+<h3><a href="{{ url_for('auth.signup') }}" class="btn-block">Sign Up</a> Or <a href="{{ url_for('auth.login') }}">Login</a> to start.</h3>
+{% endif %}
+</div>
 {% endblock %}

@@ -16,10 +16,11 @@ class User(UserMixin, db.Model):
 class Writing(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String())
-    title = db.Column(db.String(200))
-    genre = db.Column(db.String(15))
+    title = db.Column(db.String(100))
+    prompt = db.Column(db.String(100))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):
         return '<Writing: [{}]|by [{}]>'.format(self.title, self.user)
+
 
