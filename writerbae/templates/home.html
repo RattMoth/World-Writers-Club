@@ -3,19 +3,35 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+{% if not current_user.is_authenticated %}
 <div id="container">
     <div id="center">
       <h1 class="title" id="p12">
-           Join The 🌎 World Writers Club! ✍ ️
+        <a href="{{ url_for('auth.signup') }}">Join The 🌎 </a> World Writers Club! ✍ ️
       </h1>
     </div>
   </div>
   <br>
-  <h2 class="subtitle" style="line-height: 1.4">Get matched with another writer, and you both have 15 minutes to answer a writing prompt.<br>
+  <h2 class="subtitle" style="line-height: 1.4">Match with another writer, and you both have 15 minutes to answer a writing prompt.<br>
      Then share with each other...<br>
       then never speak again ;)
   </h2>
+  {% endif %}
+  {% if current_user.is_authenticated %}
+<div id="container">
+    <div id="center">
+      <h1 class="title" id="p12">
+           Welcome To The 🌎 World Writers Club! ✍ ️
+      </h1>
+    </div>
+  </div>
+  <br>
+  <h2 class="subtitle" style="line-height: 1.4">Match with another writer, and you both have 15 minutes to answer a writing prompt.<br>
+     If you're ready...<br>
+      Join a Prompt ;)
+  </h2>
+  {% endif %}
+
   {% if not current_user.is_authenticated %}
   <h3 class="subtitle"><a href="{{ url_for('auth.signup') }}">Sign Up</a> Or <a href="{{ url_for('auth.login') }}">Login</a> to start.</h3>
   {% endif %}
