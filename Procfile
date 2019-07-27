@@ -1,1 +1,1 @@
-web: gunicorn app:writerbae
+web: gunicorn app:app
