@@ -15,15 +15,6 @@ def index():
 def profile():
     return render_template('profile.html', current=current_user, title = "Profile")
 
-@main.route('/prompt')
-@login_required
-def prompt():
-    return render_template('prompt.html', current=current_user)
-
-@main.route('/prompt', methods=['POST'])
-@login_required
-def prompt_post():
-    return render_template('profile.html')
 
     
 
