@@ -1,1 +1,1 @@
-web: gunicorn app:app
+gunicorn -w 4 writerbae:create_app()
