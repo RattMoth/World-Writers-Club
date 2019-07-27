@@ -2,16 +2,16 @@ from flask import Flask
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from flask_heroku import Heroku
-heroku = Heroku(app)
+
 
 db = SQLAlchemy()
 
 def create_app():
     app = Flask(__name__)
-
+    
     app.config['SECRET_KEY'] = 'secret'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    
+    heroku = Heroku(app)
     db.init_app(app)
 
     login_manager = LoginManager()
