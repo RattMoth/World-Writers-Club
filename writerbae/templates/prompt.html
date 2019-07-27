@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-4 card">
+        <div class="card-body">
+            <div class="card-text">
+                <p id="change">blahblahblhabahbalbahblahblahfbhlffd</p>
+            </div>
+        <button onclick="myFunction()">Show My Writings</button>
+            <script>
+            function myFunction(){
+        
+             document.getElementById("change").innerHTML = "{{ current.name }}";    
+            }</script>
+        </div>
+    </div>
+    <div class="col-4">
+        <h1>yea</h1>
+    </div>
+    <div class="col-4">
+        <h1>yea</h1>
+        
+    </div>
+</div>
+{% endblock %}
