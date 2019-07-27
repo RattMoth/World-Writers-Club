@@ -3,15 +3,16 @@ from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from flask_heroku import Heroku
 
-
 db = SQLAlchemy()
 
 def create_app():
     app = Flask(__name__)
-    
+
     app.config['SECRET_KEY'] = 'secret'
+    app.config['SQLALCHEMY_DATABASE_URI'] = "postgres://ifgdfnaocvytvk:84c1e3a50005ae17de34b009a3d4c15992f035843cc2fea7682d5a5436898690@ec2-54-243-193-59.compute-1.amazonaws.com:5432/ddnq3pibrcqgp8"
+
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    heroku = Heroku(app)
+   
     db.init_app(app)
 
     login_manager = LoginManager()
