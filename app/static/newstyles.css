@@ -1,21 +1,36 @@
+
 #container {
-    display: flex;
-  }
-  
-  #center {
-    margin: auto;
-  }
-  /* Remaining CSS is identical to original */
-  #p12 {
-    display: flex;
-    overflow: hidden;
-    border-right: .15em solid orange;
-    white-space: nowrap;
-    margin: 0 auto;
-    letter-spacing: 2px;
-    animation: typing 1.3s steps(10, end), blink-caret .75s steps(50, end) infinite;
-  }
-  
-  #p12 {
-    display: inline-flex;
-  }
+  display: flex;
+}
+
+#center {
+  margin-right: 0vw;
+}
+/* Remaining CSS is identical to original */
+#p12 {
+  display: flex;
+  font-size: 5.4vw;
+  overflow: hidden;
+  border-right: .15em solid orange;
+  white-space: nowrap;
+  text-align-last: center;
+  margin: auto;
+  letter-spacing: 2px;
+  animation: typing 1.3s steps(10, end), blink-caret .75s steps(50, end) infinite;
+}
+
+#p12 {
+  display: inline-flex;
+}
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange }
+}

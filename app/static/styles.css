@@ -9788,27 +9788,3 @@ a.panel-block:hover, label.panel-block:hover {
     background-color: #fafafa;
     padding: 3rem 1.5rem 6rem
 }
-
-#container {
-    display: flex;
-  }
-  
-  #center {
-    margin-right: 0vw;
-  }
-  /* Remaining CSS is identical to original */
-  #p12 {
-    display: flex;
-    font-size: 5.4vw;
-    overflow: hidden;
-    border-right: .15em solid orange;
-    white-space: nowrap;
-    text-align-last: center;
-    margin: auto;
-    letter-spacing: 2px;
-    animation: typing 1.3s steps(10, end), blink-caret .75s steps(50, end) infinite;
-  }
-  
-  #p12 {
-    display: inline-flex;
-  }
