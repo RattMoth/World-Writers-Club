@@ -1,4 +1,3 @@
-
 #container {
   display: flex;
 }
@@ -22,8 +21,19 @@
 #p12 {
   display: inline-flex;
 }
+#p13 {
+  display: flex;
+  overflow: hidden;
+  border-right: .15em solid orange;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 2px;
+  animation: typing 1.3s steps(10, end), blink-caret .75s steps(50, end) infinite;
 }
 
+#p13 {
+  display: inline-flex;
+}
 @keyframes typing {
   from { width: 0 }
   to { width: 100% }
