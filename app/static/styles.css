@@ -9789,14 +9789,26 @@ a.panel-block:hover, label.panel-block:hover {
     padding: 3rem 1.5rem 6rem
 }
 
-  /* The typing effect */
-  @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
+#container {
+    display: flex;
   }
   
-  /* The typewriter cursor effect */
-  @keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: orange }
+  #center {
+    margin-right: 0vw;
+  }
+  /* Remaining CSS is identical to original */
+  #p12 {
+    display: flex;
+    font-size: 5.4vw;
+    overflow: hidden;
+    border-right: .15em solid orange;
+    white-space: nowrap;
+    text-align-last: center;
+    margin: auto;
+    letter-spacing: 2px;
+    animation: typing 1.3s steps(10, end), blink-caret .75s steps(50, end) infinite;
+  }
+  
+  #p12 {
+    display: inline-flex;
   }
